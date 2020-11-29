@@ -1,0 +1,15 @@
+/movie-service-rest/src/main/java/com/example/movie/models/exception/ValidationResults.java
+/movie-service-rest/src/main/java/com/example/movie/models/rest/MovieListRestResponse.java
+/movie-service-rest/src/main/java/com/example/movie/MovieApplication.java
+/movie-service-rest/src/main/java/com/example/movie/models/exception/ErrorMessage.java
+/movie-service-rest/src/main/java/com/example/movie/models/rest/DataTableResponse.java
+/movie-service-rest/src/main/java/com/example/movie/respositories/MovieRepository.java
+/movie-service-rest/src/main/java/com/example/movie/configurations/OpenApi.java
+/movie-service-rest/src/main/java/com/example/movie/service/impl/MovieServiceImpl.java
+/movie-service-rest/src/main/java/com/example/movie/controllers/HealthRestController.java
+/movie-service-rest/src/main/java/com/example/movie/service/MovieService.java
+/movie-service-rest/src/main/java/com/example/movie/models/entity/Movie.java
+/movie-service-rest/src/main/java/com/example/movie/exception/ResourceNotFoundException.java
+/movie-service-rest/src/main/java/com/example/movie/exception/ControllerExceptionHandler.java
+/movie-service-rest/src/main/java/com/example/movie/controllers/MovieController.java
+/movie-service-rest/src/main/java/com/example/movie/models/rest/MovieRequest.java

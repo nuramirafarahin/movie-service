@@ -1,0 +1,41 @@
+version: '3'
+services:
+  mysql-db:
+    container_name: mysql-db
+    env_file:
+      - .env
+    image: "mysql/mysql-server:5.7"
+    ports:
+      - "3307:3306"
+    networks:
+      movie-network:
+    environment:
+      - MYSQL_ONETIME_PASSWORD=true
+    volumes:
+      - ./mysql-data:/var/lib/mysql57:rw
+      - ./mysql-init:/docker-entrypoint-initdb.d/:ro
+
+  movie-service:
+    container_name: movie-service
+    image: movie-service:latest
+    build:
+      context: ./movie-service-rest
+      dockerfile: Dockerfile
+    working_dir: /movie-service-rest
+    restart: on-failure
+    volumes:
+      - ./movie-service-rest:/movie-service-rest
+    ports:
+      - "8080:8080"
+    depends_on:
+      - mysql-db
+    networks:
+      movie-network:
+    environment:
+      SPRING_DATASOURCE_USERNAME: ${MYSQL_USER}
+      SPRING_DATASOURCE_PASSWORD: ${MYSQL_PASSWORD}
+      SPRING_DATASOURCE_URL: jdbc:mysql://mysql-db/${MYSQL_DB}?useSSL=false&allowPublicKeyRetrieval=true
+    command: mvn clean spring-boot:run
+
+networks:
+  movie-network:
