@@ -1,5 +1,7 @@
 package com.example.movie.models.rest;
 
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
@@ -13,8 +15,9 @@ public class MovieRequest {
     private String category;
 
     @NotNull
-    /*@Size(min = 0, max = 1, message = "Rating length should be between 1 and 100")*/
-    private double rating;
+    @Min(1)
+    @Max(5)
+    private int rating;
 
     public String getTitle() {
         return title;
@@ -32,11 +35,11 @@ public class MovieRequest {
         this.category = category;
     }
 
-    public double getRating() {
+    public int getRating() {
         return rating;
     }
 
-    public void setRating(double rating) {
+    public void setRating(int rating) {
         this.rating = rating;
     }
 }

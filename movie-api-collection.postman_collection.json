@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "3cf782d6-298b-4642-bfef-df24c1964b28",
+		"_postman_id": "6474ba23-0740-4df7-b3f0-3e697a9f4bab",
 		"name": "movie-api-collection",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -34,7 +34,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8080/movies?page=1&size=3&sort=id,DESC",
+							"raw": "http://localhost:8080/movies?page=0&size=20",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -46,15 +46,11 @@
 							"query": [
 								{
 									"key": "page",
-									"value": "1"
+									"value": "0"
 								},
 								{
 									"key": "size",
-									"value": "3"
-								},
-								{
-									"key": "sort",
-									"value": "id,DESC"
+									"value": "20"
 								}
 							]
 						}
@@ -75,7 +71,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\t\"title\" : \"Savings 3\",\n\t\"description\" : \"Savings Account 3\"\n}"
+							"raw": "{\n    \"title\": \"Narnia\",\n    \"category\": \"Adventure\",\n    \"rating\": 5\n}"
 						},
 						"url": {
 							"raw": "http://localhost:8080/movies",
@@ -105,7 +101,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"id\": 1,\n    \"title\": \"Savings 3\",\n    \"category\": \"TestCategory\",\n    \"rating\": 0.0\n}"
+							"raw": "{\n    \"title\": \"Narnia\",\n    \"category\": \"Adventure\",\n    \"rating\": 4\n}"
 						},
 						"url": {
 							"raw": "http://localhost:8080/movies/:movie-id",
@@ -189,7 +185,7 @@
 				{
 					"listen": "prerequest",
 					"script": {
-						"id": "4125b7a7-eaf4-415d-a4a6-a305f8462fd6",
+						"id": "ae53f4d0-ad55-4660-bb47-f0ea3436dec9",
 						"type": "text/javascript",
 						"exec": [
 							""
@@ -199,7 +195,7 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "6d158211-a48f-4fb9-9945-28884dc43efb",
+						"id": "eccfb664-e8d3-41d3-80c7-1f76d35ac40d",
 						"type": "text/javascript",
 						"exec": [
 							""
@@ -234,7 +230,7 @@
 		{
 			"listen": "prerequest",
 			"script": {
-				"id": "54200806-a358-4a0b-b970-6f3cfbcb82af",
+				"id": "53939eea-501a-45cf-b55e-aed30856658f",
 				"type": "text/javascript",
 				"exec": [
 					""
@@ -244,7 +240,7 @@
 		{
 			"listen": "test",
 			"script": {
-				"id": "c0a803ed-76f4-43c5-967e-0818dc4f6b18",
+				"id": "d6ad20de-8e9c-431b-9c98-4afc7dd670de",
 				"type": "text/javascript",
 				"exec": [
 					""

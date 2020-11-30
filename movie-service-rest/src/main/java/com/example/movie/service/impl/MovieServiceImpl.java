@@ -15,6 +15,7 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import java.net.URI;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class MovieServiceImpl implements MovieService {
@@ -61,14 +62,21 @@ public class MovieServiceImpl implements MovieService {
     @Override
     public ResponseEntity<Movie> updateMovie(long movieId, MovieRequest movieRequest) {
 
-        Movie movie = new Movie(movieRequest);
-        return this.movieRepository
-                .findById(movieId)
-                .map(movieFound -> {
-                    movieFound.mergeMovie(movieId, movie);
-                    return ResponseEntity
-                            .ok(this.movieRepository.save(movie));
-                }).orElse(ResponseEntity.ok(this.movieRepository.save(movie)));
+        Optional<Movie> movieOptional = movieRepository.findById(movieId);
+
+        if (!movieOptional.isPresent()){
+            return createMovie(movieRequest);
+        }
+
+        Movie movie = movieOptional.get();
+        movie.setTitle(movieRequest.getTitle());
+        movie.setCategory(movieRequest.getCategory());
+        movie.setRating(movieRequest.getRating());
+
+        Movie updatedMovie = movieRepository.save(movie);
+
+        return ResponseEntity
+                .ok(this.movieRepository.save(updatedMovie));
 
     }
 

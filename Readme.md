@@ -1,4 +1,4 @@
-## Building movie REST services with Spring Boot and Mysql
+## Building movie REST service with Spring Boot and Mysql
 
 
 ## Steps to run movie service with Mysql
@@ -6,7 +6,7 @@
 1. **Clone the application**
 
 	```bash
-	git clone 
+	git clone https://github.com/nuramirafarahin/movie-service.git
 	```
 
 2. **Run docker images**
