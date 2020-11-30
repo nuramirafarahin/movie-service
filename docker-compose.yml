@@ -6,7 +6,7 @@ services:
       - .env
     image: "mysql/mysql-server:5.7"
     ports:
-      - "3307:3306"
+      - "3306:3306"
     networks:
       movie-network:
     environment:

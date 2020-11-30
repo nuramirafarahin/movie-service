@@ -6,7 +6,7 @@
 1. **Clone the application**
 
 	```bash
-	git clone https://github.com/nuramirafarahin/movie-service.git
+	gh repo clone nuramirafarahin/movie-service
 	```
 
 2. **Run docker images**
