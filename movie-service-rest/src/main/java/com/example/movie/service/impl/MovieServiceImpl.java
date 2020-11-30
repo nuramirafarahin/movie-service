@@ -8,6 +8,7 @@ import com.example.movie.respositories.MovieRepository;
 import com.example.movie.service.MovieService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -32,8 +33,9 @@ public class MovieServiceImpl implements MovieService {
     }
 
     @Override
-    public ResponseEntity<MovieListRestResponse> getMovies(Pageable pageable) {
+    public ResponseEntity<MovieListRestResponse> getMovies(int page, int size) {
 
+        Pageable pageable = PageRequest.of(page, size);
         MovieListRestResponse movieListRestResponse = new MovieListRestResponse();
         Page<Movie> moviePage = movieRepository.findAll(pageable);
         List<Movie> movies = moviePage.getContent();

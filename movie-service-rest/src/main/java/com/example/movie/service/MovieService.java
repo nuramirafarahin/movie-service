@@ -8,7 +8,7 @@ import org.springframework.http.ResponseEntity;
 
 public interface MovieService{
     ResponseEntity<Movie> getMovieById(Long movieId);
-    ResponseEntity<MovieListRestResponse> getMovies(Pageable pageable);
+    ResponseEntity<MovieListRestResponse> getMovies(int page, int size);
     ResponseEntity<Movie> createMovie(MovieRequest movieRequest);
     ResponseEntity<Movie> updateMovie(long movieId, MovieRequest movieRequest);
     ResponseEntity<?> deleteMovie(long movieId);

@@ -43,8 +43,10 @@ public class MovieController {
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "Successful operation",
                     content = @Content(mediaType = MediaType.APPLICATION_JSON_VALUE, schema = @Schema(implementation = MovieListRestResponse.class))) })
-    private ResponseEntity<MovieListRestResponse> getMovies(Pageable pageable) {
-        return movieService.getMovies(pageable);
+    private ResponseEntity<MovieListRestResponse> getMovies(
+            @RequestParam(value = "page", defaultValue = "0", required = false) int page,
+            @RequestParam(value = "count", defaultValue = "10", required = false) int size) {
+        return movieService.getMovies(page, size);
     }
 
     @PostMapping(value = "/movies", consumes = { MediaType.APPLICATION_JSON_VALUE })
