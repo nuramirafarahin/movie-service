@@ -73,7 +73,7 @@ public class MovieController {
     @DeleteMapping(value = "/movies/{movieId}")
     @Operation(summary = "Deletes a movie")
     @ApiResponses(value = {
-            @ApiResponse(responseCode = "204", description = "Successful operation with no content") })
+            @ApiResponse(responseCode = "204", description = "Successful operation with no content", content = @Content) })
     private ResponseEntity deleteMovie(
             @Parameter(description="Id of the movie to be delete. Cannot be empty.", required=true)
             @PathVariable Long movieId) {

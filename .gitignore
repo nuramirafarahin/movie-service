@@ -37,3 +37,5 @@ ehthumbs.db
 Thumbs.db
 
 *.lst
+.idea/
+movie-service-rest/target/
