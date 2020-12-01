@@ -53,8 +53,7 @@ public class MovieController {
     @Operation(summary = "Add a new movie")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "201", description = "Movie created",
-                    content = @Content(schema = @Schema(implementation = Movie.class))),
-            @ApiResponse(responseCode = "400", description = "Bad Request, invalid input") })
+                    content = @Content(mediaType = MediaType.APPLICATION_JSON_VALUE, schema = @Schema(implementation = Movie.class)))})
     private ResponseEntity<Movie> createMovie(@Valid @RequestBody MovieRequest movieRequest) {
         return movieService.createMovie(movieRequest);
     }
